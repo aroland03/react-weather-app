@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { setCities } from "../state/citiesSlice";
 import { useSearchCityMutation } from "../state/searchCityApi";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Suggestions } from "./Suggestions";
 
 export const SearchBar = () => {
@@ -32,7 +32,7 @@ export const SearchBar = () => {
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-3">
+      <div className="grid grid-cols-1 md:grid-cols-3 mb-8">
         <div></div>
         <div className="relative">
       <input
@@ -44,6 +44,7 @@ export const SearchBar = () => {
         onChange={handleSearchTermChange}
         onFocus={() => setisOnFocus(true)}
         onBlur={() => setisOnFocus(false)}
+        autoComplete="off"
       />
 
       <div  className="absolute top-0 mt-3  right-4">

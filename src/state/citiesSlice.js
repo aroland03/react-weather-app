@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { Budapest } from "./budapestCity";
 
 export const citiesSlice = createSlice({
     name: "cities",
     initialState: {
-        selectedCity: null,
+        selectedCity: Budapest,
         cities: [],
     },
     reducers: {
