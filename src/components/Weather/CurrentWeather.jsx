@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectSelectedCity } from "../state/citiesSlice";
-import { useGetWeatherMutation } from "../state/weatherApi";
+import { selectSelectedCity } from "../../state/citiesSlice";
+import { useGetWeatherMutation } from "../../state/weatherApi";
 import { useEffect } from "react";
-import { selectWeather, setWeather } from "../state/weatherSlice";
-import { Rain, WeatherIcon } from "./WeatherIcons";
+import { selectWeather, setWeather } from "../../state/weatherSlice";
+import { Rain, WeatherIcon } from "../Tools/WeatherIcons";
 import { Weather } from "./Weather";
 
 export const CurrentWeather = () => {

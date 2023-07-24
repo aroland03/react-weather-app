@@ -1,8 +1,8 @@
-import { Humidity, SunRise, SunSet, UV, Umbrella } from "../assets/icons";
-import { selectWeather } from "../state/weatherSlice";
+import { Humidity, SunRise, SunSet, UV, Umbrella } from "../Tools/icons";
+import { selectWeather } from "../../state/weatherSlice";
 import { useSelector } from "react-redux";
-import { Wind } from "../assets/icons";
-import { WindDir } from "./WindDir";
+import { Wind } from "../Tools/icons";
+import { WindDir } from "../Tools/WindDir";
 
 export const CurrentDetails = () => {
     const selectedWeather = useSelector(selectWeather);
@@ -12,7 +12,7 @@ export const CurrentDetails = () => {
 
 
     return(
-        <div className="grid grid-cols-2 md:grid-cols-6 justify-items-center mt-6 text-white">
+        <div className="grid grid-cols-2 md:grid-cols-6 justify-items-center mt-8 text-white">
             <div className="mt-2 md:mt-0"><Humidity/> {selectedWeather?.currentConditions?.humidity}%</div>
             <div className="mt-2 md:mt-0"><Wind/> {selectedWeather?.currentConditions?.windspeed} km/h  <WindDir dirDegree={selectedWeather?.currentConditions?.winddir} /></div>
             <div className="mt-2 md:mt-0"><UV /> - {selectedWeather?.currentConditions?.uvindex}</div>

@@ -1,5 +1,4 @@
-export const WindDir = ({dirDegree}) => {
-    
+export const WindDir = ({dirDegree}) => { 
     if(dirDegree > 348.75 || dirDegree <= 11.25) return " (É)";
     if(dirDegree > 11.25 && dirDegree <= 33.75) return " (É-ÉK)";
     if(dirDegree > 33.75 && dirDegree <= 56.25) return " (ÉK)";

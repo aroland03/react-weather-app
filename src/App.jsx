@@ -1,8 +1,8 @@
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import { SearchBar } from "./components/SearhBar";
-import { Weather } from "./components/Weather";
+import { SearchBar } from "./components/SearchBar/SearhBar";
+import { Weather } from "./components/Weather/Weather";
 
 function App() {
   return (

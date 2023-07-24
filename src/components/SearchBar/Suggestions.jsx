@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCities, setCities, setSelectedCity } from "../state/citiesSlice";
+import { selectCities, setCities, setSelectedCity } from "../../state/citiesSlice";
 
 export const Suggestions = ({ visible, setTerm, setPlaceholder }) => {
   const selectedCities = useSelector(selectCities);
@@ -36,7 +36,7 @@ export const Suggestions = ({ visible, setTerm, setPlaceholder }) => {
   return (
     <>
       {(visible || hovering) && selectedCities.length > 0 && (
-        <div className="absolute mt-2 w-full overflow-hidden rounded-md bg-white"
+        <div className="absolute mt-2 w-full overflow-hidden rounded-lg bg-white"
             onMouseEnter={() => setHovering(true)}
             onMouseLeave={() => setHovering(false)}>
             
