@@ -2,19 +2,19 @@ import { createSlice } from "@reduxjs/toolkit";
 import { Budapest } from "./budapestCity";
 
 export const citiesSlice = createSlice({
-    name: "cities",
-    initialState: {
-        selectedCity: Budapest,
-        cities: [],
+  name: "cities",
+  initialState: {
+    selectedCity: Budapest,
+    cities: [],
+  },
+  reducers: {
+    setSelectedCity: (state, action) => {
+      state.selectedCity = action.payload;
     },
-    reducers: {
-        setSelectedCity: (state, action) => {
-            state.selectedCity = action.payload;
-        },
-        setCities: (state, action) => {
-            state.cities = action.payload;
-        }
-    }
+    setCities: (state, action) => {
+      state.cities = action.payload;
+    },
+  },
 });
 
 export const { setSelectedCity, setCities } = citiesSlice.actions;

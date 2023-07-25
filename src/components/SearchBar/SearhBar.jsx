@@ -19,7 +19,7 @@ export const SearchBar = () => {
       await getCities(e.target.value)
         .unwrap()
         .then((res) => {
-          console.log(res);
+          //console.log(res);
           dispatch(setCities(res.features));
         })
         .catch((err) => {

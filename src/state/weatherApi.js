@@ -1,7 +1,6 @@
-import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { useSelector } from "react-redux";
 import { selectSelectedCity } from "./citiesSlice";
-
 
 export const weatherApi = createApi({
   reducerPath: "weatherApi",

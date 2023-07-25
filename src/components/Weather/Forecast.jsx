@@ -42,18 +42,20 @@ export const Forecast = () => {
     );
 
     next10Days = next10DaysData?.map((day, index) => {
-        return {
-            date: day.datetime.split("-")[1] + "." + day.datetime.split("-")[2],
-            day: new Date(day.datetime).toLocaleString('hu-HU', { weekday: 'long' }),
-            icon: day.icon,
-            precipprob: day.precipprob,
-            temp: Math.round(day.temp),
-        }
-    })
+      return {
+        date: day.datetime.split("-")[1] + "." + day.datetime.split("-")[2],
+        day: new Date(day.datetime).toLocaleString("hu-HU", {
+          weekday: "long",
+        }),
+        icon: day.icon,
+        precipprob: day.precipprob,
+        temp: Math.round(day.temp),
+      };
+    });
   }
 
-  console.log(next24Hours);
-    console.log(next10Days);
+  //console.log(next24Hours);
+  //console.log(next10Days);
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 justify-items-center">
