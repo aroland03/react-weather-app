@@ -24,6 +24,8 @@ Az alkalmazás megjeleníti az aktuális időjárás részletes adatait, illetve
 
 ## Telepítés
 
+Az alkalmazás telepítéséhez szükséges a [Node.js](https://nodejs.org/en/) telepítése.
+
 Az alkalmazás letöltése után a következő parancsokat kell kiadni a mappában:
 
 **Függőségek telepítése**
