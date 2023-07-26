@@ -6,7 +6,7 @@ import {
   setSelectedCity,
 } from "../../state/citiesSlice";
 
-export const Suggestions = ({ visible, setTerm, setPlaceholder }) => {
+export const Suggestions = ({ visible, setVisible, setTerm, setPlaceholder }) => {
   const selectedCities = useSelector(selectCities);
   const dispatch = useDispatch();
 
@@ -30,6 +30,7 @@ export const Suggestions = ({ visible, setTerm, setPlaceholder }) => {
     (city) => {
       dispatch(setSelectedCity(city));
       setHovering(false);
+      setVisible(false);
       setTerm("");
       dispatch(setCities([]));
       setPlaceholder(

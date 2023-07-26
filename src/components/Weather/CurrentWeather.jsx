@@ -35,7 +35,7 @@ export const CurrentWeather = () => {
       {selectedWeather && selectedCity && (
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="flex flex-col justify-center items-center">
-            <div className="text-6xl font-bold text-white mb-4 md:mb-0">
+            <div className="md:text-6xl text-5xl font-bold text-white mb-4 md:mb-0">
               {selectedCity?.properties?.city}
             </div>
           </div>

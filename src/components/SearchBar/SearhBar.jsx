@@ -59,6 +59,7 @@ export const SearchBar = () => {
           </div>
           <Suggestions
             visible={isOnFocus}
+            setVisible={setisOnFocus}
             setTerm={setSearchTerm}
             setPlaceholder={setPlaceHolder}
           />
