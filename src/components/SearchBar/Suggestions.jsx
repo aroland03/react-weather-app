@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import { useCallback, useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectCities,
@@ -10,9 +10,9 @@ export const Suggestions = ({ visible, setVisible, setTerm, setPlaceholder }) =>
   const selectedCities = useSelector(selectCities);
   const dispatch = useDispatch();
 
-  const [hovering, setHovering] = React.useState(false);
+  const suggestionsRef = useRef(null);
 
-  const sortByCountry = (cities, country) => {
+  const sortByCountry = (cities) => {
     const sortedCities = [...cities];
     const hungarianCities = sortedCities.filter(
       (city) => city.properties.country_code === countryCode
@@ -23,30 +23,48 @@ export const Suggestions = ({ visible, setVisible, setTerm, setPlaceholder }) =>
     return hungarianCities.concat(nonHungarianCities);
   };
 
+  useEffect(() => {
+    if (selectedCities.length > 0) {
+      setVisible(true);
+    } else {
+      setVisible(false);
+    }
+  }, [selectedCities, setVisible]);
+  
+    const handleOutsideClick = useCallback((event) => {
+      if (suggestionsRef.current && !suggestionsRef.current.contains(event.target)) {
+        setVisible(false);
+      }
+    }, [setVisible]);
+  
+    useEffect(() => {
+      document.addEventListener("click", handleOutsideClick);
+  
+      return () => {
+        document.removeEventListener("click", handleOutsideClick);
+      };
+    }, [handleOutsideClick]);
+
+
   const countryCode = "hu";
-  const sortedCities = sortByCountry(selectedCities, countryCode);
+  const sortedCities = sortByCountry(selectedCities);
 
   const handleCityClick = useCallback(
     (city) => {
+      console.log(city)
       dispatch(setSelectedCity(city));
-      setHovering(false);
-      setVisible(false);
-      setTerm("");
       dispatch(setCities([]));
-      setPlaceholder(
-        `${city.properties.address_line1}, ${city.properties.address_line2}`
-      );
-    },
-    [dispatch]
+      setPlaceholder(`${city.properties.address_line1}, ${city.properties.address_line2}`);
+      setTerm("");
+    }, [dispatch, setPlaceholder, setTerm]
   );
 
   return (
     <>
-      {(visible || hovering) && selectedCities.length > 0 && (
+      {(visible) && selectedCities.length > 0 && (
         <div
+          ref={suggestionsRef}
           className="absolute mt-2 w-full overflow-hidden rounded-lg bg-white"
-          onMouseEnter={() => setHovering(true)}
-          onMouseLeave={() => setHovering(false)}
         >
           {sortedCities.map((city, index) => {
             return (

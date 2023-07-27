@@ -42,8 +42,7 @@ export const SearchBar = () => {
             placeholder={placeHolder}
             value={searchTerm}
             onChange={handleSearchTermChange}
-            onFocus={() => setisOnFocus(true)}
-            onBlur={() => setisOnFocus(false)}
+
             autoComplete="off"
           />
 
