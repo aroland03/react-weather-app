@@ -7,7 +7,6 @@ export const Forecast = () => {
 
   let next24Hours = null;
   let next10Days = null;
-  const today = new Date().getDay();
 
   if (selectedWeather && selectedWeather?.days?.length > 0) {
     const next24HoursData = {

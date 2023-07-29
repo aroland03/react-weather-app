@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { setCities } from "../../state/citiesSlice";
 import { useSearchCityMutation } from "../../state/searchCityApi";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Suggestions } from "./Suggestions";
 
 export const SearchBar = () => {
@@ -42,7 +42,6 @@ export const SearchBar = () => {
             placeholder={placeHolder}
             value={searchTerm}
             onChange={handleSearchTermChange}
-
             autoComplete="off"
           />
 

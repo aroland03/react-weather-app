@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectCities,
@@ -6,7 +6,12 @@ import {
   setSelectedCity,
 } from "../../state/citiesSlice";
 
-export const Suggestions = ({ visible, setVisible, setTerm, setPlaceholder }) => {
+export const Suggestions = ({
+  visible,
+  setVisible,
+  setTerm,
+  setPlaceholder,
+}) => {
   const selectedCities = useSelector(selectCities);
   const dispatch = useDispatch();
 
@@ -30,21 +35,26 @@ export const Suggestions = ({ visible, setVisible, setTerm, setPlaceholder }) =>
       setVisible(false);
     }
   }, [selectedCities, setVisible]);
-  
-    const handleOutsideClick = useCallback((event) => {
-      if (suggestionsRef.current && !suggestionsRef.current.contains(event.target)) {
+
+  const handleOutsideClick = useCallback(
+    (event) => {
+      if (
+        suggestionsRef.current &&
+        !suggestionsRef.current.contains(event.target)
+      ) {
         setVisible(false);
       }
-    }, [setVisible]);
-  
-    useEffect(() => {
-      document.addEventListener("click", handleOutsideClick);
-  
-      return () => {
-        document.removeEventListener("click", handleOutsideClick);
-      };
-    }, [handleOutsideClick]);
+    },
+    [setVisible]
+  );
 
+  useEffect(() => {
+    document.addEventListener("click", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, [handleOutsideClick]);
 
   const countryCode = "hu";
   const sortedCities = sortByCountry(selectedCities);
@@ -54,14 +64,17 @@ export const Suggestions = ({ visible, setVisible, setTerm, setPlaceholder }) =>
       //console.log(city)
       dispatch(setSelectedCity(city));
       dispatch(setCities([]));
-      setPlaceholder(`${city.properties.address_line1}, ${city.properties.address_line2}`);
+      setPlaceholder(
+        `${city.properties.address_line1}, ${city.properties.address_line2}`
+      );
       setTerm("");
-    }, [dispatch, setPlaceholder, setTerm]
+    },
+    [dispatch, setPlaceholder, setTerm]
   );
 
   return (
     <>
-      {(visible) && selectedCities.length > 0 && (
+      {visible && selectedCities.length > 0 && (
         <div
           ref={suggestionsRef}
           className="absolute mt-2 w-full overflow-hidden rounded-lg bg-white"
