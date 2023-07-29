@@ -51,7 +51,7 @@ export const Suggestions = ({ visible, setVisible, setTerm, setPlaceholder }) =>
 
   const handleCityClick = useCallback(
     (city) => {
-      console.log(city)
+      //console.log(city)
       dispatch(setSelectedCity(city));
       dispatch(setCities([]));
       setPlaceholder(`${city.properties.address_line1}, ${city.properties.address_line2}`);

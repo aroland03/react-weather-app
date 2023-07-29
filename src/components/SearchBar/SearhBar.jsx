@@ -15,7 +15,7 @@ export const SearchBar = () => {
   const handleSearchTermChange = async (e) => {
     setSearchTerm(e.target.value);
     if (e.target.value.length > 2) {
-      console.log(e.target.value);
+      //console.log(e.target.value);
       await getCities(e.target.value)
         .unwrap()
         .then((res) => {

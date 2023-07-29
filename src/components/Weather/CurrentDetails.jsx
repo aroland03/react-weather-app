@@ -24,12 +24,12 @@ export const CurrentDetails = () => {
     <div className="grid grid-cols-2 md:grid-cols-6 justify-items-center mt-8 text-white">
       <div className="mt-2 md:mt-0">
         <Droplet className="h-6 w-6 mr-1 inline" />{" "}
-        {selectedWeather?.currentConditions?.humidity}%
+        {Math.round(selectedWeather?.currentConditions?.humidity)}%
       </div>
       <div className="mt-2 md:mt-0">
         {" "}
         <Wind className="h-6 w-6 mr-1 inline" />{" "}
-        {selectedWeather?.currentConditions?.windspeed} km/h{" "}
+        {Math.round(selectedWeather?.currentConditions?.windspeed)} km/h{" "}
         <WindDir dirDegree={selectedWeather?.currentConditions?.winddir} />
       </div>
       <div className="mt-2 md:mt-0">
@@ -37,7 +37,7 @@ export const CurrentDetails = () => {
       </div>
       <div className="mt-2 md:mt-0">
         <Umbrella className="h-6 w-6 mr-1 inline" />{" "}
-        {selectedWeather?.currentConditions?.precipprob}%
+        {Math.round(selectedWeather?.currentConditions?.precipprob)}%
       </div>
       <div className="mt-2 md:mt-0">
         <Sunrise className="h-6 w-6 mr-1 inline" /> {sunrise}
