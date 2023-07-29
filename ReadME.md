@@ -1,8 +1,11 @@
 # React WeatherApp
 
+## Az alkalmazás kipróbálható [ezen a linken](https://aroland03.github.io/react-weather-app/) !
+
 ## Leírás
 
 Az alkalmazás megjeleníti az aktuális időjárás részletes adatait, illetve 24 órás óránkénti, és 10 napos előrejelzést is megjelenít.
+
 
 ### Megjelenített adatok (aktuális időjárás)
 
@@ -44,11 +47,9 @@ npm run dev
 
 Az alkalmazást megnyitva alapértelmezetten Budapest időjárása jelenik meg.
 
-![alapértelmezett](./media/sh-weather.PNG)
-
 A keresőmezőbe elég elkezdeni begépelni a kívánt város nevét, az automatikus kiegészítés segítségével a legördülő listából ki lehet választani a kívánt várost.
 
-![keresés](./media/sh-search.PNG)
+A kiválasztott városra kattintva megjelenik az aktuális időjárás, illetve az előrejelzés.
 
 ## Adatok
 
