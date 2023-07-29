@@ -2,7 +2,7 @@ import { WeatherCard } from "./WeatherCard";
 
 export const Details = ({ title, data }) => {
   return (
-    <div className="w-5/6 mt-8">
+    <div className="w-full md:w-5/6 mt-8">
       <div className="text-xl md:text-m font-bold text-white text-center">
         <span>{title}</span>
       </div>

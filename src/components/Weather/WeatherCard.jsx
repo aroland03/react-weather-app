@@ -4,7 +4,7 @@ export const WeatherCard = ({ date, day, icon, precipprob, temp }) => {
   return (
     <div
       className="flex flex-col justify-center items-center"
-      style={{ minWidth: "90px", maxWidth: "90px" }}
+      style={{ minWidth: "80px", maxWidth: "80px" }}
     >
       <div className="text-white text-lg md:text-xl font-bold">{date}</div>
       <div className="text-white text-m md:text-lg">{day}</div>

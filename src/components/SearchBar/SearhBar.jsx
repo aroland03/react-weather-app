@@ -32,7 +32,7 @@ export const SearchBar = () => {
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-3 mb-8">
+      <div className="m-auto md:w-1/2 lg:w-1/3 mb-8">
         <div></div>
         <div className="relative">
           <input
